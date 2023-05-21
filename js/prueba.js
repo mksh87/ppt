@@ -1,2 +1,2 @@
-let a=3;
-console.log("El número mágino es "+a);
+let b=2;
+document.write("El número mágino es "+b);
