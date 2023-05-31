@@ -1,0 +1,48 @@
+<div id="div1">
+    <p>
+        Agregar los valores a promediar y luego presionar el boton "Calcular promedio" para obtener el resultado.
+    </p>
+    <p>
+    <button id="addValue">Agregar valor</button>
+    <script>
+    const addValue = document.querySelector('#addValue');
+    var valores =[]
+     addValue.onclick = function() {
+        let valor=0;  
+        valor = Number(prompt('Ingresa un nuevo valor'));
+          alert('Has ingresado el valor ' + valor);
+          valores.push(valor);
+
+        var list= valores.map(function(list){
+            return '<li>Valor: '+list+'</li>'
+        })
+        // Con map logro que se cree la lista, pero no logro hacer que se vayan las comas. 
+
+        // Y no logro hacer funcionar esta otra función. Se acumula en lugar de actualizarse.
+        /*for (var j = 0; j < valores.length; j++) {
+            list += '<li>'+valores[j] +'</li>';
+        }*/
+
+        document.getElementById("list").innerHTML = list;
+        }
+    </script>
+    </p>
+</div>
+<div id="div2">
+    <p>
+    <button id="promVal">Calcular promedio</button>
+    <script>
+      const promVal = document.querySelector('#promVal');
+            promVal.onclick = function() {
+            let sumatoria=0;
+            let promedio=0;
+            for (i = 0; i < valores.length; i++)
+            sumatoria +=valores[i];
+            promedio=sumatoria/valores.length;
+            document.getElementById("div3").textContent = "El promedio es: "+promedio;
+        }
+    </script>
+    </p>
+</div>
+<div id="list"></div>
+<div id="div3"></div>
