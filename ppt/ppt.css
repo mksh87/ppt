@@ -1,0 +1,30 @@
+body{
+    text-align: center;
+}
+
+.eleccion{
+    background-repeat:no-repeat;
+    height:50px;
+    width:70px;
+    background-size: 40px 60px;
+    background-position:center;
+  }
+  #btn-piedra{
+    background-image:url('img/piedra.svg');
+
+  }
+  #btn-papel{
+    background-image:url('img/papel.svg');
+  }
+  #btn-tijeras{
+    background-image:url('img/tijera.svg');
+  }
+
+  #mensaje3{
+    font-weight: bolder;
+  }
+
+  #mensaje4{
+    font-size: 15pt;
+    font-weight: bolder;
+  }

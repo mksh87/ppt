@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Piedra Papel o Tijeras</title>
+  <link rel="stylesheet" type="text/css" href="ppt.css" /> 
+</head>
+<body>
+  <h1>Bienvenido al juego de piedra-papel-tijeras</h1>
+  <h1>Competirás contra la computadora en una batalla sin igual!!</h1>
+  <h2>Primero selecciona la cantidad de puntos necesarios para obtener la victoria.</h2>
+    <label><input type="radio" name="partidas" value="1">1 victoria</label>
+    <label><input type="radio" name="partidas" value="3">3 victorias</label>
+    <label><input type="radio" name="partidas" value="5">5 victorias</label>
+    <label><input type="radio" name="partidas" value="10">10 victorias</label><br>
+    <button id="btn-comenzar" onclick="comenzarJuego()">Comenzar a jugar</button>
+  <p id="mensaje"></p>
+
+  <div id="codigo" style="display: none;">
+    <button class="eleccion" id="btn-piedra" name="eleccion" onclick="determinarGanador(1);cambiarFondo(this)"></button>
+    <button class="eleccion" id="btn-papel" name="eleccion" onclick="determinarGanador(2);cambiarFondo(this)"></button>
+    <button class="eleccion" id="btn-tijeras" name="eleccion" onclick="determinarGanador(3);cambiarFondo(this)"></button>
+  
+    <p id="mensaje1"></p>
+    <p id="mensaje2"></p>
+    <p id="mensaje3"></p>
+    <p id="mensaje4"></p>
+
+    <button id="btn-reset" onclick="resetear()">Volver a comenzar</button>
+  </div>
+
+<script src="ppt.js"></script>
+</body>
+</html>
