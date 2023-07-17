@@ -57,7 +57,7 @@ function comenzarJuego() { //Confirma cantidad de puntos. Habilita botones con r
     for (var i = 0; i < opciones.length; i++) {
       opciones[i].disabled = true;
     }
-    mensajeElement.textContent = "Comienza la partida.\nGana quien llegue primero a " + partidas + " puntos.";
+    mensajeElement.textContent = "Comienza la partida. Gana quien llegue primero a " + partidas + " puntos.";
     codigoElement.style.display = "block";
   } else {
     mensajeElement.textContent = "Seleccione una alternativa para poder iniciar.";
@@ -113,18 +113,18 @@ function determinarGanador(a){ // Usa obtenerJugadaUsuario y obtenerJugadaComput
   (user===2 && comp===3) || 
   (user===3 && comp===1)){
     scoreComputer++;
-    mensajeResultado.textContent =("  Ha ganado la computadora. Era esperable.\nLa partida se encuentra "+scorePlayer+" - "+scoreComputer+".");
+    mensajeResultado.textContent =("  Ha ganado la computadora. Era esperable. La partida se encuentra "+scorePlayer+" - "+scoreComputer+".");
   } else if( 
   (user===2 && comp===1) || 
   (user===3 && comp===2) || 
   (user===1 && comp===3)){
     scorePlayer++;
-    mensajeResultado.textContent =("  ¡Ganaste! Seguramente fue con suerte.\nLa partida se encuentra "+scorePlayer+" - "+scoreComputer+".");
+    mensajeResultado.textContent =("  ¡Ganaste! Seguramente fue con suerte. La partida se encuentra "+scorePlayer+" - "+scoreComputer+".");
   } else {
-    mensajeResultado.textContent = ("  Empate. Muy poco original copiar a tu rival.\nLa partida continua "+scorePlayer+" - "+scoreComputer+".");
+    mensajeResultado.textContent = ("  Empate. Muy poco original copiar a tu rival. La partida continua "+scorePlayer+" - "+scoreComputer+".");
   }
 
-  checkEnd()
+  checkEnd();
 }
 
 function resetear() { //Restaura todo a la pantalla de selección de partidas

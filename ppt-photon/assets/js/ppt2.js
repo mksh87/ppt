@@ -1,16 +1,23 @@
+let jugadas =["piedra","papel","tijeras","spock","lagarto"];
+let mensajes=["","Papel envuelve Piedra","","Tijeras corta Papel","Piedra aplasta Tijeras",
+"Spock rompe Tijera","","Lagarto envenena Spock","Papel desautoriza Spock","Spock vaporiza Piedra",
+"","","Tijera decapita Lagarto","","",
+"Lagarto come Papel","Piedra aplasta Lagarto"]
 let scorePlayer=0; //puntaje del usuario
 let scoreComputer=0; //puntaje de la computadora
 var scoreMax=0; //mayor entre scorePlayer y scoreComputer
 var usuario; //elección del usuario
+var partidas; //define variable de cantidad de partidas que se deben ganar para finalizar
 var mensajeUsuario = document.getElementById("mensaje1"); //párrafo de jugada de usuario.
 var mensajeComputadora = document.getElementById("mensaje2");//párrafo de jugada de computadora.
 var mensajeResultado = document.getElementById("mensaje3"); //párrafo de resultado y score.
 var mensajeFin = document.getElementById("mensaje4"); //párrafo de anuncio de ganador.
-var partidas; //define variable de cantidad de partidas que se deben ganar para finalizar
 var mensajeElement = document.getElementById("mensaje"); //párrafo en caso de no elegir una opción al iniciar partida.
-var codigoElement = document.getElementById("codigo"); // toma los elementos del div codigo, que es el de los botones PPT.
-var originalOnClicks = {}; // Variable para almacenar los eventos onclick originales
 var buttons = document.getElementsByName('eleccion');// Obtener todos los botones con la clase "eleccion"
+var codigoElement = document.getElementById("codigo"); // toma los elementos del div codigo, que es el de los botones PPT.
+var codigoElement2 = document.getElementById("codigo2"); // toma los elementos del div codigo, que es el de los botones PPT.
+
+var originalOnClicks = {}; // Variable para almacenar los eventos onclick originales
 let ultimoBotonPresionado = null; // Variable para almacenar el último botón presionado
 
 function cambiarFondo(boton) {// Cambiar el fondo del botón presionado a verde
@@ -32,6 +39,7 @@ function desactivarOnClick() {   // Desactivar los eventos onclick
 
 function restaurarOnClick() { // Restaurar los eventos onclick originales
 var buttons = document.getElementsByName('eleccion');
+
   for (var i = 0; i < buttons.length; i++) {
     var button = buttons[i];
     var originalOnClick = originalOnClicks[button.id];
@@ -41,14 +49,28 @@ var buttons = document.getElementsByName('eleccion');
   }
 }
 
+function generarBotones(){
+    while (codigoElement.firstChild) {
+      codigoElement.removeChild(codigoElement.firstChild);
+    }    // Eliminar botones previos
+  for (var i = 0; i < jugadas.length; i++) {
+    var button = document.createElement("button");
+    button.className = "button fit";
+    button.name = "eleccion";
+    button.id = jugadas[i];
+    button.setAttribute("onclick", "determinarGanador(" + i + ");cambiarFondo(this)");
+    button.textContent = jugadas[i].toUpperCase();
+    codigoElement.appendChild(button);
+  }
+}
+
 function comenzarJuego() { //Confirma cantidad de puntos. Habilita botones con restaurarOnClick()
   var opciones = document.getElementsByName("partidas");
   var seleccionado = false;
-  restaurarOnClick();
   for (var i = 0; i < opciones.length; i++) {
     if (opciones[i].checked) {
       seleccionado = true;
-      partidas = opciones[i].value;
+      partidas = Number(opciones[i].value);
       break;
     }
   }
@@ -57,8 +79,10 @@ function comenzarJuego() { //Confirma cantidad de puntos. Habilita botones con r
     for (var i = 0; i < opciones.length; i++) {
       opciones[i].disabled = true;
     }
-    mensajeElement.textContent = "Comienza la partida.\nGana quien llegue primero a " + partidas + " puntos.";
-    codigoElement.style.display = "block";
+    mensajeElement.textContent = "Comienza la partida. Gana quien llegue primero a " + partidas + " puntos.";
+    generarBotones();
+    restaurarOnClick();
+    codigoElement2.style.display = "block";
   } else {
     mensajeElement.textContent = "Seleccione una alternativa para poder iniciar.";
   }
@@ -66,25 +90,13 @@ function comenzarJuego() { //Confirma cantidad de puntos. Habilita botones con r
 
 function obtenerJugadaUsuario(valor) { //Devuelve elección de usuario según botón que presione.
   usuario = Number(valor);
-  if (usuario === 1) {
-    mensajeUsuario.textContent = "Elegiste PIEDRA.";
-  } else if (usuario === 2) {
-    mensajeUsuario.textContent = "Elegiste PAPEL.";
-  } else if (usuario === 3) {
-    mensajeUsuario.textContent = "Elegiste TIJERAS.";
-  }
-  return usuario;
+    mensajeUsuario.textContent = "Elegiste "+jugadas[usuario].toUpperCase();
+return usuario;
 }
 
 function obtenerJugadaComputadora() {
-  let computadora = Math.floor(Math.random() * 3+1);
-  if(computadora===1){
-    mensajeComputadora.textContent = " La computadora elige PIEDRA.";
-  }else if(computadora===2){
-    mensajeComputadora.textContent = " La computadora elige PAPEL.";
-  }else if(computadora===3){
-    mensajeComputadora.textContent = " La computadora elige TIJERAS.";
-  }
+  let computadora = Math.floor(Math.random() * 5);
+    mensajeComputadora.textContent = " La computadora elige "+jugadas[computadora].toUpperCase();
   return computadora;
 }
 
@@ -108,23 +120,18 @@ function checkEnd(){ //Verifica si scoreMax llega a las puntos elegidos. Da mens
 function determinarGanador(a){ // Usa obtenerJugadaUsuario y obtenerJugadaComputadora para determinar ganador. Suma puntos y da mensaje
   let user = obtenerJugadaUsuario(a);
   let comp = Number(obtenerJugadaComputadora());
-  if( 
-  (user===1 && comp===2) || 
-  (user===2 && comp===3) || 
-  (user===3 && comp===1)){
+  if( user===comp){
+    mensajeResultado.textContent = ("  Empate. Muy poco original copiar a tu rival. \nLa partida continua "+scorePlayer+" - "+scoreComputer+".");
+      } else if( 
+  ((user+1)%jugadas.length===comp) || ((user+3)%jugadas.length===comp)  ){
     scoreComputer++;
-    mensajeResultado.textContent =("  Ha ganado la computadora. Era esperable.\nLa partida se encuentra "+scorePlayer+" - "+scoreComputer+".");
-  } else if( 
-  (user===2 && comp===1) || 
-  (user===3 && comp===2) || 
-  (user===1 && comp===3)){
-    scorePlayer++;
-    mensajeResultado.textContent =("  ¡Ganaste! Seguramente fue con suerte.\nLa partida se encuentra "+scorePlayer+" - "+scoreComputer+".");
+    mensajeResultado.textContent =(mensajes[Math.abs(user**2-comp**2)].toUpperCase()+". Ha ganado la computadora. Era esperable. \nLa partida se encuentra "+scorePlayer+" - "+scoreComputer+".");
   } else {
-    mensajeResultado.textContent = ("  Empate. Muy poco original copiar a tu rival.\nLa partida continua "+scorePlayer+" - "+scoreComputer+".");
+    scorePlayer++;
+    mensajeResultado.textContent =(mensajes[Math.abs(user**2-comp**2)].toUpperCase()+".  ¡Ganaste! Seguramente fue con suerte. \nLa partida se encuentra "+scorePlayer+" - "+scoreComputer+".");
   }
 
-  checkEnd()
+  checkEnd();
 }
 
 function resetear() { //Restaura todo a la pantalla de selección de partidas
@@ -143,6 +150,8 @@ function resetear() { //Restaura todo a la pantalla de selección de partidas
   mensajeFin.textContent = "";
   scorePlayer=0;
   scoreComputer=0;
-  codigoElement.style.display = "none";
+  codigoElement2.style.display = "none";
+  codigoElement="";
+  codigoElement = document.getElementById("codigo");
   document.getElementById("btn-comenzar").setAttribute('onclick', 'comenzarJuego()');
 }

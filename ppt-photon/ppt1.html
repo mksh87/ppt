@@ -1,0 +1,106 @@
+<!DOCTYPE HTML>
+
+<html>
+	<head>
+		<title>Piedra Papel Tijeras</title>
+		<meta name="author" content="Keshi" />
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="assets/css/main.css" />
+		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
+	</head>
+	<body class="is-preload">
+
+		<!-- Header -->
+			<section id="header">
+				<div class="inner">
+					<span class="icon solid major fa-cloud"></span>
+					<h1>Bienvenido a <strong>piedra papel o tijeras CLASICO</strong></h1>
+					<p>Demuestra tu infinita habilidad<br />
+					en una épica batalla contra el ordenador.</p>
+					<p>Si ya te aburriste del clásico y quieres jugar la versión TBBT con lagarto y spock haz click <a href="ppt2.html">AQUI</a>.</p>
+					<ul class="actions stacked">
+						<li><a href="#one" class="button scrolly">¡A jugar!</a></li>
+					</ul>
+				</div>
+			</section>
+
+		<!-- One -->
+			<section id="one" class="main style1">
+				<div class="container">
+					<div class="row gtr-150">
+						<div class="col-6 col-12-medium">
+							<header class="contenido">
+								<h2>Selecciona la cantidad de puntos<br />
+								necesarios para ganar la partida.</h2>
+							</header>
+							<div class="col-4 col-12-small" >
+								<input type="radio" id="demo-priority-min" name="partidas" value="1">
+								<label for="demo-priority-min">1 punto</label>
+								<input type="radio" id="demo-priority-low" name="partidas" value="3">
+								<label for="demo-priority-low">3 puntos</label>
+								<input type="radio" id="demo-priority-normal" name="partidas" value="5">
+								<label for="demo-priority-normal">5 puntos</label>
+								<input type="radio" id="demo-priority-high" name="partidas" value="10">
+								<label for="demo-priority-high">10 puntos</label>
+							</div>
+							<ul class="actions stacked">
+								<li><a href="#two" id="btn-comenzar" class="button scrolly" onclick="comenzarJuego()">Comienza</a></li>
+								<p id="mensaje"></p>
+							</ul>					
+						</div>
+					</div>
+				</div>
+			</section>
+
+		<!-- Two -->
+		 
+			<section id="two" class="main style2">
+				<div class="container" >
+					<div class="row gtr-150">
+						<div class="col-6 col-12-medium">
+
+							<div id="codigo" style="display: none;">
+								<p>Elige una de las siguientes opciones. Tranquilo, te prometo que la computadora no se va a enterar.</p>
+
+							<ul class="actions fit small">
+								
+								<li><button class="button fit" id="btn-piedra" name="eleccion" onclick="determinarGanador(1);cambiarFondo(this)">Piedra</li>
+								<li><button class="button fit" id="btn-papel" name="eleccion" onclick="determinarGanador(2);cambiarFondo(this)">Papel</li>
+								<li><button class="button fit" id="btn-tijeras" name="eleccion" onclick="determinarGanador(3);cambiarFondo(this)">Tijeras</li>
+
+							</ul>
+							<p id="mensaje1"></p>
+							<p id="mensaje2"></p>
+							<p id="mensaje3" style="font-weight: bold;white-space: pre-line;"></p>
+							<header class="major">
+								<h2></h2><p id="mensaje4"></p></h2>	
+
+							</header>
+							<p>Si la compu te está bailando sabroso o ya terminaste la partida y quieres reiniciar, haz clic en el siguiente botón:</p>
+							<ul class="actions stacked">
+								<li><a href="#one" id="btn-reset" onclick="resetear()" class="button scrolly">Reiniciar</a></li>
+							</ul>
+					</div>
+						</div>
+					</div>
+				</div>
+			</section>
+
+		<!-- Footer -->
+			<section id="footer">
+				<ul class="copyright">
+					<li>&copy; Piedra, Papel y Tijeras</li><li>Design: <a href="http://html5up.net">HTML5 UP</a></li>
+				</ul>
+			</section>
+
+		<!-- Scripts -->
+			<script src="assets/js/jquery.min.js"></script>
+			<script src="assets/js/jquery.scrolly.min.js"></script>
+			<script src="assets/js/browser.min.js"></script>
+			<script src="assets/js/breakpoints.min.js"></script>
+			<script src="assets/js/main.js"></script>
+			<script src="assets/js/ppt.js"></script>
+
+	</body>
+</html>

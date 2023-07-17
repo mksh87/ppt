@@ -2,29 +2,64 @@ body{
     text-align: center;
 }
 
-.eleccion{
-    background-repeat:no-repeat;
-    height:50px;
-    width:70px;
-    background-size: 40px 60px;
-    background-position:center;
-  }
-  #btn-piedra{
-    background-image:url('img/piedra.svg');
+.eleccion {
+  background-repeat: no-repeat;
+  height: 3em;
+  width: 5em;
+  background-size: 3em 4em;
+  background-position: center;
+}
 
+#btn-piedra{
+  background-image:url('img/piedra.svg');
   }
-  #btn-papel{
-    background-image:url('img/papel.svg');
-  }
-  #btn-tijeras{
-    background-image:url('img/tijera.svg');
+  
+#btn-papel{
+  background-image:url('img/papel.svg');
+}
+
+#btn-tijeras{
+  background-image:url('img/tijera.svg');
+}
+
+#mensaje3{
+  font-weight: bolder;
+}
+
+#mensaje4{
+  font-size: 15pt;
+  font-weight: bolder;
+}
+
+label {
+  color: #230150;
+  font-weight: bold;
+  font-size: 200%;
+}
+
+button{
+  font-size: 200%;
+  height: 2em;
+  width: 10em;
+  border-radius: 15px;
+ }
+ 
+#btn-comenzar{
+  background-color: #6e96b1;
+
+  font-family: fantasy;
   }
 
-  #mensaje3{
-    font-weight: bolder;
+  input[type="radio"] {
+    -ms-transform: scale(2); /* IE 9 */
+    -webkit-transform: scale(2); /* Chrome, Safari, Opera */
+    transform: scale(2);
   }
 
-  #mensaje4{
-    font-size: 15pt;
-    font-weight: bolder;
+.contenido{
+    background-image: linear-gradient(to left, #75b4b1, #0092a5);
   }
+
+h1{
+  font-size: 3vw;
+}
