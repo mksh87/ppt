@@ -2,7 +2,7 @@
 
 <html>
 	<head>
-		<title>Piedra Papel Tijeras</title>
+		<title>Piedra Papel Tijeras Lagarto Spock</title>
 		<meta name="author" content="Keshi" />
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
@@ -14,11 +14,14 @@
 		<!-- Header -->
 			<section id="header">
 				<div class="inner">
-					<span class="icon solid major fa-cloud"></span>
-					<h1>Bienvenido a <strong>piedra papel o tijeras CLASICO</strong></h1>
+					<span class="icon solid major fa-hand-spock"></span>
+					<span class="icon solid major fa-hand-lizard"></span>
+					<h1>Bienvenido a <strong>piedra, papel, tijeras, lagarto o Spock</strong></h1>
 					<p>Demuestra tu infinita habilidad<br />
 					en una épica batalla contra el ordenador.</p>
-					<p>Si ya te aburriste del clásico y quieres jugar la versión TBBT con lagarto y spock haz click <a href="ppt2.html">AQUI</a>.</p>
+					<p>Si no estás para cosas raras y quieres jugar la versión clásica haz click <a href="ppt3.html">AQUI</a>.</p>
+					<p>Si ya te aburriste y quieres dar un paso más haz click <a href="ppt7.html">AQUI</a>.</p>
+					<p>Si ya te aburriste y quieres dar dos pasos más haz click <a href="ppt9.html">AQUI</a>.</p>
 					<ul class="actions stacked">
 						<li><a href="#one" class="button scrolly">¡A jugar!</a></li>
 					</ul>
@@ -59,29 +62,22 @@
 				<div class="container" >
 					<div class="row gtr-150">
 						<div class="col-6 col-12-medium">
-
 							<div id="codigo" style="display: none;">
-								<p>Elige una de las siguientes opciones. Tranquilo, te prometo que la computadora no se va a enterar.</p>
+							<p>Elige una de las siguientes opciones. Tranquilo, te prometo que la computadora no se va a enterar.</p>
+							<div id="codigo2" ></div>
+							
+								<p id="mensaje1"></p>
+								<p id="mensaje2"></p>
+								<p id="mensaje3" style="font-weight: bold;white-space: pre-line;"></p>
+								<header class="major">
+									<h2><p id="mensaje4"></p></h2>	
 
-							<ul class="actions fit small">
-								
-								<li><button class="button fit" id="btn-piedra" name="eleccion" onclick="determinarGanador(1);cambiarFondo(this)">Piedra</li>
-								<li><button class="button fit" id="btn-papel" name="eleccion" onclick="determinarGanador(2);cambiarFondo(this)">Papel</li>
-								<li><button class="button fit" id="btn-tijeras" name="eleccion" onclick="determinarGanador(3);cambiarFondo(this)">Tijeras</li>
-
-							</ul>
-							<p id="mensaje1"></p>
-							<p id="mensaje2"></p>
-							<p id="mensaje3" style="font-weight: bold;white-space: pre-line;"></p>
-							<header class="major">
-								<h2></h2><p id="mensaje4"></p></h2>	
-
-							</header>
+								</header>
 							<p>Si la compu te está bailando sabroso o ya terminaste la partida y quieres reiniciar, haz clic en el siguiente botón:</p>
 							<ul class="actions stacked">
 								<li><a href="#one" id="btn-reset" onclick="resetear()" class="button scrolly">Reiniciar</a></li>
 							</ul>
-					</div>
+							</div>
 						</div>
 					</div>
 				</div>
@@ -100,6 +96,16 @@
 			<script src="assets/js/browser.min.js"></script>
 			<script src="assets/js/breakpoints.min.js"></script>
 			<script src="assets/js/main.js"></script>
+			<script>
+			let jugadas =["piedra","papel","tijeras","spock","lagarto"];
+			let mensajes=[
+				["","envuelve","rompe","vaporiza","aplasta"],
+				["envuelve","","corta","desautoriza","come"],
+				["rompe","corta","","vaporiza","decapita"],
+				["vaporiza","desautoriza","vaporiza","","envenena"],
+				["aplasta","come","decapita","envenena",""]
+			]
+			</script>
 			<script src="assets/js/ppt.js"></script>
 
 	</body>
