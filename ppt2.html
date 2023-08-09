@@ -1,0 +1,60 @@
+<!DOCTYPE HTML>
+
+<html>
+	<head>
+		<title>Piedra Papel Tijeras</title>
+		<meta name="author" content="Keshi" />
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="assets/css/main.css" />
+		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
+
+	</head>
+	<body class="is-preload">
+
+		<!-- Header -->
+			<section id="header">
+				<div class="inner">
+					<span class="icon solid major fa-hand-rock"></span>
+					<span class="icon solid major fa-hand-paper"></span>
+					<span class="icon solid major fa-hand-scissors"></span>
+					<h1>Bienvenido a <strong>piedra papel o tijeras CLASICO</strong></h1>
+					<p>Demuestra tu infinita habilidad<br />
+					en una épica batalla contra el ordenador.</p>
+					<p>Si ya te aburriste del clásico y quieres jugar la versión TBBT con lagarto y spock haz click <a href="ppt5.html">AQUI</a>.</p>
+					<p>Si estás medio loco y quieres jugar la versión on 7 opciones haz click <a href="ppt7.html">AQUI</a>.</p>
+					<p>Si estás muy loco y quieres jugar la versión on 9 opciones haz click <a href="ppt9.html">AQUI</a>.</p>
+
+					<ul class="actions stacked">
+						<li><a href="#one" class="button scrolly">¡A jugar!</a></li>
+					</ul>
+				</div>
+			</section>
+
+			<div id="one"></div>
+
+			<script>
+    		  $("#one").load("./ppt.html");
+			</script>
+
+		<!-- Scripts -->
+		<script src="assets/js/jquery.min.js"></script>
+		<script src="assets/js/jquery.scrolly.min.js"></script>
+		<script src="assets/js/browser.min.js"></script>
+		<script src="assets/js/breakpoints.min.js"></script>
+		<script src="assets/js/main.js"></script>
+		<script src="assets/js/ppt.js"></script>
+		<script src="assets/js/jquery-3.7.0.js"></script>
+
+		<script>
+			let jugadas =["piedra","papel","tijeras"];
+			let mensajes=[
+				["","envuelve","rompe"],
+				["envuelve","","corta"],
+				["rompe","corta",""]
+			]
+		</script>
+
+
+	</body>
+</html>
